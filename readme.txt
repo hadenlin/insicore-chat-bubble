@@ -2,7 +2,7 @@
 Contributors:      hadenlin
 Tags:              contact button, floating button, whatsapp, live chat, click to chat
 Requires at least: 5.9
-Tested up to:      6.7
+Tested up to:      6.9
 Requires PHP:      7.4
 Stable tag:        1.0.0
 License:           GPLv2 or later
@@ -12,7 +12,7 @@ A fully customizable floating contact bubble for WhatsApp, LINE, Messenger, Tele
 
 == Description ==
 
-**OmniChat Bubble** lets you add a sleek, animated floating button to your WordPress site so visitors can reach you instantly on their preferred messaging platform.
+**Insicore Chat Bubble** lets you add a sleek, animated floating button to your WordPress site so visitors can reach you instantly on their preferred messaging platform.
 
 = Key Features =
 
@@ -37,7 +37,7 @@ Everything is configured through the visual builder in your WordPress admin. Jus
 
 == Installation ==
 
-1. Upload the `omnichat-bubble` folder to the `/wp-content/plugins/` directory, or install directly through the WordPress plugin screen.
+1. Upload the `insicore-chat-bubble` folder to the `/wp-content/plugins/` directory, or install directly through the WordPress plugin screen.
 2. Activate the plugin through the **Plugins** screen in WordPress.
 3. Go to **Contact Bubble → Builder** to configure your channels and design.
 4. Click **Save & Publish** — the bubble appears on your site immediately.
@@ -66,7 +66,7 @@ In a custom database table (`wp_pcb_submissions`). You can view, mark as read, a
 
 = Does the built-in contact form send email notifications? =
 
-Not in the current version. Submissions are saved to the database and viewable in the admin. Email notification support is planned for a future release.
+Yes. An email notification is sent to the admin email address (or a custom address set in the Settings tab) whenever a new form submission is received. Submissions are also saved to the database and viewable under **Contact Bubble → Submissions**.
 
 == Screenshots ==
 
@@ -79,13 +79,13 @@ Not in the current version. Submissions are saved to the database and viewable i
 
 == Privacy ==
 
-OmniChat Bubble collects and stores the following personal data on your WordPress site:
+Insicore Chat Bubble collects and stores the following personal data on your WordPress site:
 
 **Contact Form Submissions:** When a visitor submits the built-in contact form, the plugin stores the visitor's name, email address, phone number, message, the URL of the page where the form was submitted, and their IP address. This data is saved to a custom database table (`{prefix}pcb_submissions`) and is accessible only to site administrators under **Contact Bubble → Submissions**.
 
 **Click Analytics:** When a visitor interacts with the bubble, the plugin records the event type, channel clicked, page URL, and device type (mobile or desktop) in a custom table (`{prefix}pcb_events`). IP addresses are used transiently for rate-limiting purposes via WordPress transients (maximum lifetime: 60 seconds) and are not permanently stored in the analytics table.
 
-Site owners are responsible for disclosing this data collection to their visitors in their own Privacy Policy. OmniChat Bubble supports WordPress's built-in **Tools → Export Personal Data** and **Tools → Erase Personal Data** features for all contact form submissions.
+Site owners are responsible for disclosing this data collection to their visitors in their own Privacy Policy. Insicore Chat Bubble supports WordPress's built-in **Tools → Export Personal Data** and **Tools → Erase Personal Data** features for all contact form submissions.
 
 == Changelog ==
 
