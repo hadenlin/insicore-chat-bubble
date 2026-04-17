@@ -3,6 +3,7 @@
 
     const cfg = window.pcbFrontendConfig || {};
     const ajaxUrl = cfg.ajaxUrl || '/wp-admin/admin-ajax.php';
+    const i18n = cfg.i18n || {};
 
     function device() {
         return window.innerWidth <= 768 ? 'mobile' : 'desktop';
@@ -186,17 +187,17 @@
                     const json = await res.json();
                     if (json.success) {
                         status.className = 'pcb-form-status pcb-ok';
-                        status.textContent = json.data.message || 'Thanks!';
+                        status.textContent = json.data.message || i18n.thanks || 'Thanks!';
                         form.reset();
                         track('form_submit', { channel_type: 'form' });
                         setTimeout(close, 2500);
                     } else {
                         status.className = 'pcb-form-status pcb-err';
-                        status.textContent = (json.data && json.data.message) || 'Something went wrong.';
+                        status.textContent = (json.data && json.data.message) || i18n.error || 'Something went wrong.';
                     }
                 } catch (err) {
                     status.className = 'pcb-form-status pcb-err';
-                    status.textContent = 'Network error. Please try again.';
+                    status.textContent = i18n.networkError || 'Network error. Please try again.';
                 }
             });
         });

@@ -33,7 +33,19 @@ function pcb_handle_form_submission() {
     $phone   = sanitize_text_field( wp_unslash( $_POST['phone']   ?? '' ) );
     $message = sanitize_textarea_field( wp_unslash( $_POST['message'] ?? '' ) );
 
-    if ( $name === '' || $email === '' || $message === '' ) {
+    // Message is only required when the form config enables it (default: required).
+    $message_required = true;
+    $channels = json_decode( pcb_get_settings()['channels_data'] ?? '[]', true );
+    if ( is_array( $channels ) ) {
+        foreach ( $channels as $ch ) {
+            if ( ( $ch['type'] ?? '' ) === 'form' && isset( $ch['form_config']['show_message'] ) ) {
+                $message_required = ! empty( $ch['form_config']['show_message'] );
+                break;
+            }
+        }
+    }
+
+    if ( $name === '' || $email === '' || ( $message_required && $message === '' ) ) {
         wp_send_json_error( [ 'message' => __( 'Please fill in all required fields.', 'insicore-chat-bubble' ) ], 422 );
     }
     if ( ! is_email( $email ) ) {
@@ -65,17 +77,19 @@ function pcb_handle_form_submission() {
     if ( $notify_to && is_email( $notify_to ) ) {
         $subject = sprintf(
             /* translators: %s = site name */
-            __( '[%s] New contact bubble message', 'insicore-chat-bubble' ),
+            __( '[%s] New message via Insicore Chat Bubble', 'insicore-chat-bubble' ),
             wp_specialchars_decode( get_bloginfo( 'name' ), ENT_QUOTES )
         );
-        $body  = __( 'You received a new message from the contact bubble:', 'insicore-chat-bubble' ) . "\n\n";
+        $body  = __( 'You received a new message via Insicore Chat Bubble:', 'insicore-chat-bubble' ) . "\n\n";
         $body .= __( 'Name: ',    'insicore-chat-bubble' ) . $name    . "\n";
         $body .= __( 'Email: ',   'insicore-chat-bubble' ) . $email   . "\n";
         $body .= __( 'Phone: ',   'insicore-chat-bubble' ) . $phone   . "\n";
         $body .= __( 'Page: ',    'insicore-chat-bubble' ) . esc_url_raw( wp_unslash( $_POST['page_url'] ?? '' ) ) . "\n\n";
         $body .= __( 'Message:',  'insicore-chat-bubble' ) . "\n" . $message . "\n";
 
-        wp_mail( $notify_to, $subject, $body, [ 'Reply-To: ' . $name . ' <' . $email . '>' ] );
+        // Sanitize name for header to prevent header injection (strip newlines).
+        $safe_name = str_replace( [ "\r", "\n" ], '', $name );
+        wp_mail( $notify_to, $subject, $body, [ 'Reply-To: ' . $safe_name . ' <' . $email . '>' ] );
     }
 
     $success = $settings['form_success_message'] !== ''

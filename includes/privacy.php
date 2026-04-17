@@ -1,6 +1,6 @@
 <?php
 /**
- * GDPR / Privacy support for OmniChat Bubble.
+ * GDPR / Privacy support for Insicore Chat Bubble.
  *
  * Registers personal-data exporters and erasers so site owners can
  * fulfil Data Subject Access Requests (DSAR) through the built-in
@@ -16,13 +16,13 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-/* ?€?€ Exporter ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* ?ï¿½?ï¿½ Exporter ?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½ */
 
 add_filter( 'wp_privacy_personal_data_exporters', 'pcb_register_privacy_exporters' );
 
 function pcb_register_privacy_exporters( $exporters ) {
     $exporters['insicore-chat-bubble'] = [
-        'exporter_friendly_name' => __( 'OmniChat Bubble ??Contact Form Submissions', 'insicore-chat-bubble' ),
+        'exporter_friendly_name' => __( 'Insicore Chat Bubble - Contact Form Submissions', 'insicore-chat-bubble' ),
         'callback'               => 'pcb_privacy_exporter',
     ];
     return $exporters;
@@ -44,8 +44,8 @@ function pcb_privacy_exporter( $email_address, $page = 1 ) {
     $export_items = [];
     foreach ( $rows as $r ) {
         $export_items[] = [
-            'group_id'    => 'omnichat-bubble-submissions',
-            'group_label' => __( 'OmniChat Bubble ??Contact Submissions', 'insicore-chat-bubble' ),
+            'group_id'    => 'insicore-chat-bubble-submissions',
+            'group_label' => __( 'Insicore Chat Bubble - Contact Submissions', 'insicore-chat-bubble' ),
             'item_id'     => 'pcb-submission-' . (int) $r['id'],
             'data'        => [
                 [ 'name' => __( 'Date Submitted', 'insicore-chat-bubble' ), 'value' => $r['submitted_at'] ],
@@ -65,13 +65,13 @@ function pcb_privacy_exporter( $email_address, $page = 1 ) {
     ];
 }
 
-/* ?€?€ Eraser ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* ?ï¿½?ï¿½ Eraser ?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½ */
 
 add_filter( 'wp_privacy_personal_data_erasers', 'pcb_register_privacy_erasers' );
 
 function pcb_register_privacy_erasers( $erasers ) {
     $erasers['insicore-chat-bubble'] = [
-        'eraser_friendly_name' => __( 'OmniChat Bubble ??Contact Form Submissions', 'insicore-chat-bubble' ),
+        'eraser_friendly_name' => __( 'Insicore Chat Bubble - Contact Form Submissions', 'insicore-chat-bubble' ),
         'callback'             => 'pcb_privacy_eraser',
     ];
     return $erasers;
@@ -91,7 +91,7 @@ function pcb_privacy_eraser( $email_address, $page = 1 ) {
     }
 
     return [
-        'items_removed'  => $count > 0,
+        'items_removed'  => $count,
         'items_retained' => false,
         'messages'       => [],
         'done'           => true,

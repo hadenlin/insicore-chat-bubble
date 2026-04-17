@@ -16,7 +16,7 @@ if ( ! function_exists( 'pcb_build_visibility_catalog' ) ) {
         foreach ( get_pages( [ 'number' => 200 ] ) as $p ) {
             $rules_data[] = [ 'id' => $p->ID, 'title' => $p->post_title, 'type' => 'pages' ];
         }
-        foreach ( get_posts( [ 'number' => 200, 'post_status' => 'publish' ] ) as $p ) {
+        foreach ( get_posts( [ 'numberposts' => 200, 'post_status' => 'publish' ] ) as $p ) {
             $rules_data[] = [ 'id' => $p->ID, 'title' => $p->post_title, 'type' => 'posts' ];
         }
 

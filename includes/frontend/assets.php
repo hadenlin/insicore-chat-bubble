@@ -16,10 +16,16 @@ add_action( 'init', function () {
 } );
 
 function pcb_enqueue_assets() {
+    $settings   = pcb_get_settings();
+    $is_preview = isset( $_GET['pcb_preview'] ) && current_user_can( 'manage_options' );
+
+    // Skip loading assets when the bubble won't render on this page.
+    if ( ! $is_preview && ! pcb_should_show_bubble( $settings ) ) {
+        return;
+    }
+
     wp_enqueue_style(  'pcb-style',  PCB_PLUGIN_URL . 'assets/css/style.css',           [], '3.0.0' );
     wp_enqueue_script( 'pcb-bubble', PCB_PLUGIN_URL . 'assets/js/frontend-bubble.js',   [], '3.0.0', true );
-
-    $settings = pcb_get_settings();
     $inline   = pcb_build_inline_css( $settings );
 
     // Theme preset CSS.

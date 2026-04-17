@@ -109,21 +109,25 @@ function pcb_build_preset_message( $template ) {
     $template = trim( (string) $template );
     if ( $template === '' ) return '';
 
-    $title = '';
-    $url   = '';
-    if ( function_exists( 'is_singular' ) && is_singular() ) {
-        $title = get_the_title();
-        $url   = get_permalink();
-    } else {
-        $url = home_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '/' ) );
+    // Cache page context across multiple calls per request.
+    static $page_context = null;
+    if ( $page_context === null ) {
+        $title = '';
+        $url   = '';
+        if ( function_exists( 'is_singular' ) && is_singular() ) {
+            $title = get_the_title();
+            $url   = get_permalink();
+        } else {
+            $url = home_url( wp_unslash( $_SERVER['REQUEST_URI'] ?? '/' ) );
+        }
+        $page_context = [
+            '{page_title}' => $title,
+            '{page_url}'   => $url,
+            '{site_name}'  => get_bloginfo( 'name' ),
+        ];
     }
 
-    $replacements = [
-        '{page_title}' => $title,
-        '{page_url}'   => $url,
-        '{site_name}'  => get_bloginfo( 'name' ),
-    ];
-    $rendered = strtr( $template, $replacements );
+    $rendered = strtr( $template, $page_context );
 
     return rawurlencode( $rendered );
 }

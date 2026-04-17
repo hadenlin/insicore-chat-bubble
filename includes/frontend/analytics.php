@@ -56,16 +56,19 @@ function pcb_analytics_totals( $days = 30 ) {
     $t = pcb_get_events_table();
     $since = gmdate( 'Y-m-d H:i:s', strtotime( "-{$days} days" ) );
 
+    $row = $wpdb->get_row( $wpdb->prepare(
+        "SELECT
+            SUM(event_type = 'click')       AS total_clicks,
+            SUM(event_type = 'open')        AS total_opens,
+            SUM(event_type = 'form_submit') AS total_forms
+         FROM {$t} WHERE event_at >= %s",
+        $since
+    ), ARRAY_A );
+
     return [
-        'total_clicks' => (int) $wpdb->get_var( $wpdb->prepare(
-            "SELECT COUNT(*) FROM {$t} WHERE event_type = 'click' AND event_at >= %s", $since
-        ) ),
-        'total_opens'  => (int) $wpdb->get_var( $wpdb->prepare(
-            "SELECT COUNT(*) FROM {$t} WHERE event_type = 'open'  AND event_at >= %s", $since
-        ) ),
-        'total_forms'  => (int) $wpdb->get_var( $wpdb->prepare(
-            "SELECT COUNT(*) FROM {$t} WHERE event_type = 'form_submit' AND event_at >= %s", $since
-        ) ),
+        'total_clicks' => (int) ( $row['total_clicks'] ?? 0 ),
+        'total_opens'  => (int) ( $row['total_opens']  ?? 0 ),
+        'total_forms'  => (int) ( $row['total_forms']  ?? 0 ),
     ];
 }
 

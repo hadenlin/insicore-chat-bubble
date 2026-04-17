@@ -68,6 +68,11 @@ function pcb_render_bubble() {
             'nonce' => wp_create_nonce( 'pcb_form' ),
         ],
         'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+        'i18n' => [
+            'thanks'       => __( 'Thanks!',                          'insicore-chat-bubble' ),
+            'error'        => __( 'Something went wrong.',            'insicore-chat-bubble' ),
+            'networkError' => __( 'Network error. Please try again.', 'insicore-chat-bubble' ),
+        ],
     ];
     ?>
     <div id="pcb-container" class="pcb-container pcb-pos-<?php echo esc_attr( $corner ); ?> pcb-no-tip<?php echo esc_attr( $hidden_init ); ?>">

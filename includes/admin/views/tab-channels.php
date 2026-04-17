@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
                  data-hover="<?php echo esc_attr( $data['hover'] ); ?>"
                  data-icon="<?php echo esc_attr( $data['icon'] ); ?>"
                  title="<?php echo esc_attr( $data['label'] ); ?>">
-                <div class="pcb-tile-icon" style="background:<?php echo esc_attr( $data['color'] ); ?>"><?php echo $data['icon']; ?></div>
+                <div class="pcb-tile-icon" style="background:<?php echo esc_attr( $data['color'] ); ?>"><?php echo wp_kses( $data['icon'], pcb_allowed_icon_tags() ); ?></div>
                 <span class="pcb-tile-label"><?php echo esc_html( $data['label'] ); ?></span>
             </div>
             <?php endforeach; ?>

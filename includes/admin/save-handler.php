@@ -1,6 +1,6 @@
 <?php
 /**
- * Save handler for the Premium Contact Bubble admin form.
+ * Save handler for the Insicore Chat Bubble admin form.
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
@@ -166,8 +166,6 @@ function pcb_sanitize_rules_json( $raw ) {
     if ( ! is_array( $decoded ) ) return '[]';
 
     $allowed_types = [ 'pages', 'posts', 'categories', 'tags', 'taxonomies', 'archives', 'others' ];
-    $allowed_other = [ 'home', '404', 'search', 'all' ];
-
     $clean = [];
     foreach ( $decoded as $rule ) {
         if ( ! is_array( $rule ) ) continue;

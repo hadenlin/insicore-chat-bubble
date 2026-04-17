@@ -1,15 +1,15 @@
 <?php
 /**
- * Custom database tables for Premium Contact Bubble.
+ * Custom database tables for Insicore Chat Bubble.
  * Tables:
- *   {prefix}pcb_settings      ??single-row settings store
- *   {prefix}pcb_submissions   ??built-in contact form submissions
- *   {prefix}pcb_events        ??click analytics events
+ *   {prefix}pcb_settings      â€” single-row settings store
+ *   {prefix}pcb_submissions   â€” built-in contact form submissions
+ *   {prefix}pcb_events        â€” click analytics events
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-/* ?€?€ Table name helpers ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* â”€â”€ Table name helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function pcb_get_table() {
     global $wpdb;
     return $wpdb->prefix . 'pcb_settings';
@@ -25,7 +25,7 @@ function pcb_get_events_table() {
     return $wpdb->prefix . 'pcb_events';
 }
 
-/* ?€?€ Factory defaults (single source of truth) ?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* â”€â”€ Factory defaults (single source of truth) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function pcb_default_settings() {
     static $defaults = null;
     if ( $defaults === null ) {
@@ -93,7 +93,7 @@ function pcb_default_settings() {
     return $defaults;
 }
 
-/* ?€?€ Current DB schema version ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* â”€â”€ Current DB schema version â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const PCB_DB_VERSION = '3.3.0';
 
 /**
@@ -210,7 +210,7 @@ function pcb_maybe_upgrade_schema() {
     }
 }
 
-/* ?€?€ Drop tables (called on uninstall) ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* â”€â”€ Drop tables (called on uninstall) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 function pcb_drop_table() {
     global $wpdb;
     $wpdb->query( 'DROP TABLE IF EXISTS `' . pcb_get_table() . '`' );
@@ -219,8 +219,12 @@ function pcb_drop_table() {
     delete_option( 'pcb_db_version' );
 }
 
-/* ?€?€ Read settings ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
-function pcb_get_settings() {
+/* â”€â”€ Read settings (with static cache) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+function pcb_get_settings( $clear_cache = false ) {
+    static $cached = null;
+    if ( $clear_cache ) { $cached = null; return null; }
+    if ( $cached !== null ) return $cached;
+
     global $wpdb;
     $row = $wpdb->get_row(
         $wpdb->prepare( 'SELECT * FROM `' . pcb_get_table() . '` WHERE id = %d', 1 ),
@@ -228,7 +232,8 @@ function pcb_get_settings() {
     );
 
     if ( ! is_array( $row ) ) {
-        return pcb_default_settings();
+        $cached = pcb_default_settings();
+        return $cached;
     }
 
     // Merge with defaults so newly added columns always resolve.
@@ -239,10 +244,11 @@ function pcb_get_settings() {
     $row['visibility_rules'] = $row['visibility_rules'] ?: '[]';
     $row['custom_css']       = $row['custom_css']       ?: '';
 
-    return $row;
+    $cached = $row;
+    return $cached;
 }
 
-/* ?€?€ Write settings ?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€?€ */
+/* â”€â”€ Write settings (uses UPDATE instead of REPLACE) â”€â”€â”€â”€â”€â”€â”€ */
 function pcb_save_settings( array $clean ) {
     global $wpdb;
 
@@ -251,7 +257,9 @@ function pcb_save_settings( array $clean ) {
         array_merge( pcb_default_settings(), $clean ),
         pcb_default_settings()
     );
-    $data['id'] = 1;
 
-    return $wpdb->replace( pcb_get_table(), $data ) !== false;
+    // Invalidate the static cache so subsequent reads reflect the new values.
+    pcb_get_settings( true );
+
+    return $wpdb->update( pcb_get_table(), $data, [ 'id' => 1 ] ) !== false;
 }

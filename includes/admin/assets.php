@@ -8,27 +8,37 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 add_action( 'admin_enqueue_scripts', 'pcb_admin_assets' );
 
 function pcb_admin_assets( $hook ) {
-    // Builder page: slug pcb-builder (submenu of omnichat-bubble).
-    $is_builder = is_string( $hook ) && str_ends_with( $hook, 'pcb-builder' );
+    // Builder page: slug pcb-builder (submenu of insicore-chat-bubble).
+    $is_builder  = is_string( $hook ) && str_ends_with( $hook, 'pcb-builder' );
+    $is_pcb_page = is_string( $hook ) && (
+        str_ends_with( $hook, 'pcb-builder' ) ||
+        str_ends_with( $hook, 'insicore-chat-bubble' ) ||
+        str_ends_with( $hook, 'pcb-submissions' )
+    );
 
-    if ( ! $is_builder ) return;
+    if ( ! $is_pcb_page ) return;
 
-    wp_enqueue_media();
-    wp_enqueue_style( 'pcb-admin-style',         PCB_PLUGIN_URL . 'assets/css/style.css',         [], '3.0.0' );
-    wp_enqueue_style( 'pcb-admin-builder-style', PCB_PLUGIN_URL . 'assets/css/admin-builder.css', [], '3.0.0' );
+    // Analytics + Submissions pages: lightweight styles only (no WP chrome override).
+    if ( ! $is_builder ) {
+        wp_enqueue_style( 'pcb-admin-pages-style', PCB_PLUGIN_URL . 'assets/css/admin-pages.css', [], '1.0.0' );
+    }
 
     if ( $is_builder ) {
+        // Full builder UI (includes rules that hide WP admin chrome).
+        wp_enqueue_style( 'pcb-admin-style',         PCB_PLUGIN_URL . 'assets/css/style.css',         [], '3.0.0' );
+        wp_enqueue_style( 'pcb-admin-builder-style', PCB_PLUGIN_URL . 'assets/css/admin-builder.css', [], '3.0.0' );
+        wp_enqueue_media();
         wp_enqueue_script( 'pcb-admin-script', PCB_PLUGIN_URL . 'assets/js/admin-builder.js', [ 'jquery' ], '3.0.0', true );
 
         wp_localize_script( 'pcb-admin-script', 'pcbL10n', [
             // Save button
-            'saving'         => __( 'Saving??,                    'insicore-chat-bubble' ),
-            'saved'          => __( '??Settings saved',          'insicore-chat-bubble' ),
+            'saving'         => __( 'Saving...',                   'insicore-chat-bubble' ),
+            'saved'          => __( 'Settings saved',            'insicore-chat-bubble' ),
 
             // Channel card
             'labelPlaceholder'     => __( 'Label',                    'insicore-chat-bubble' ),
             'customIconLabel'      => __( 'Custom Icon (URL or SVG)', 'insicore-chat-bubble' ),
-            'customIconPlaceholder'=> __( 'https://??or <svg??',     'insicore-chat-bubble' ),
+            'customIconPlaceholder'=> __( 'https://... or <svg...>',   'insicore-chat-bubble' ),
             'customChannelLabel'   => __( 'Custom',                   'insicore-chat-bubble' ),
             'urlLabel'             => __( 'URL / Phone / ID',         'insicore-chat-bubble' ),
             'colorLabel'           => __( 'Color',                    'insicore-chat-bubble' ),
@@ -83,19 +93,33 @@ function pcb_admin_assets( $hook ) {
                 'twitter'     => __( 'X/Twitter username, e.g. @username',   'insicore-chat-bubble' ),
                 'skype'       => __( 'Skype username',                        'insicore-chat-bubble' ),
                 'snapchat'    => __( 'Snapchat username',                     'insicore-chat-bubble' ),
-                'custom_link' => __( 'https://??(full URL)',                  'insicore-chat-bubble' ),
-                'custom'      => __( 'https://??(full URL)',                  'insicore-chat-bubble' ),
-                'form'        => __( 'Not used ??opens in-page form',          'insicore-chat-bubble' ),
+                'custom_link' => __( 'https://... (full URL)',                 'insicore-chat-bubble' ),
+                'custom'      => __( 'https://... (full URL)',                 'insicore-chat-bubble' ),
+                'form'        => __( 'Not used - opens in-page form',          'insicore-chat-bubble' ),
             ],
+
+            // Form channel
+            'showPhoneField'       => __( 'Show Phone field',   'insicore-chat-bubble' ),
+            'showMessageField'     => __( 'Show Message field', 'insicore-chat-bubble' ),
+
+            // Channel stack
+            'emptyStack'           => __( 'Click an app above to add it', 'insicore-chat-bubble' ),
+            'noUrlSet'             => __( '— no URL set —',               'insicore-chat-bubble' ),
+            'removeTitle'          => __( 'Remove',                        'insicore-chat-bubble' ),
+            'alreadyAdded'         => __( '%s already added',              'insicore-chat-bubble' ),
+            'contactFormLabel'     => __( 'Contact Form',                  'insicore-chat-bubble' ),
+            'defaultFormTitle'     => __( 'Send us a message',             'insicore-chat-bubble' ),
+            'defaultFormSubmit'    => __( 'Send Message',                  'insicore-chat-bubble' ),
 
             // Preset-message support flag per channel type (enables that detail row)
             'presetMsgTypes' => [ 'whatsapp', 'sms', 'email' ],
             // Multi-agent support flag per channel type
             'agentsTypes'    => [ 'whatsapp', 'sms', 'phone', 'email', 'line', 'telegram', 'messenger' ],
 
-            // Admin URL for AJAX
-            'ajaxUrl'   => admin_url( 'admin-ajax.php' ),
-            'nonce'     => wp_create_nonce( 'pcb_admin' ),
+            // Admin URL for AJAX + postMessage origin
+            'ajaxUrl'    => admin_url( 'admin-ajax.php' ),
+            'nonce'      => wp_create_nonce( 'pcb_admin' ),
+            'siteOrigin' => esc_url( home_url() ),
         ] );
     }
 }
