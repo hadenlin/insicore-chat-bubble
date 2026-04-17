@@ -76,7 +76,7 @@ function pcb_render_submissions_page() {
                     <td><?php echo esc_html( $r['name'] ); ?></td>
                     <td><a href="mailto:<?php echo esc_attr( $r['email'] ); ?>"><?php echo esc_html( $r['email'] ); ?></a></td>
                     <td><?php echo esc_html( $r['phone'] ); ?></td>
-                    <td><?php echo nl2br( esc_html( mb_strimwidth( $r['message'], 0, 200, '?? ) ) ); ?>
+<td><?php echo nl2br( esc_html( mb_strimwidth( $r['message'], 0, 200, '...' ) ) ); ?>
                         <?php if ( ! empty( $r['page_url'] ) ) : ?>
                             <div style="color:#94a3b8;font-size:11px;margin-top:4px;">
                                 <?php esc_html_e( 'From:', 'insicore-chat-bubble' ); ?>

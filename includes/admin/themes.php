@@ -13,7 +13,7 @@ function pcb_get_theme_presets() {
 
     $themes = [
         ''         => [
-            'label' => __( '??None ??, 'insicore-chat-bubble' ),
+            'label' => __( 'None', 'insicore-chat-bubble' ),
             'css'   => '',
         ],
         'modern'   => [
