@@ -1,0 +1,125 @@
+/* ============================================================
+   PCB Admin Pages — Analytics & Submissions
+   Lightweight styles. Does NOT override WP admin chrome.
+   ============================================================ */
+
+/* ── Shared ── */
+.pcb-admin-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* ── Date-range button row ── */
+.pcb-range-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* ── KPI cards ── */
+.pcb-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+    max-width: 900px;
+}
+.pcb-kpi-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 22px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.pcb-kpi-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 8px;
+}
+.pcb-kpi-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1;
+}
+
+/* ── Generic panel ── */
+.pcb-panel {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.pcb-panel h2 {
+    margin: 0 0 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* ── Two-column layout ── */
+.pcb-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+@media (max-width: 900px) {
+    .pcb-two-col { grid-template-columns: 1fr; }
+}
+
+/* ── Channel / page rows ── */
+.pcb-ch-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.pcb-ch-row:last-child { border-bottom: none; }
+
+.pcb-ch-name {
+    min-width: 130px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.pcb-ch-name span {
+    font-size: 11px;
+    font-weight: 400;
+    color: #94a3b8;
+}
+
+.pcb-ch-bar {
+    flex: 1;
+    height: 8px;
+    background: #f1f5f9;
+    border-radius: 999px;
+    overflow: hidden;
+}
+.pcb-ch-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    border-radius: 999px;
+    min-width: 4px;
+}
+.pcb-ch-count {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+    min-width: 32px;
+    text-align: right;
+}
+
+/* ── Submissions table ── */
+.pcb-submissions-table td {
+    vertical-align: top;
+    padding: 10px 12px;
+}

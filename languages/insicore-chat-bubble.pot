@@ -1,0 +1,982 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Insicore Chat Bubble\n"
+"POT-Creation-Date: 2026-04-17 18:37+0800\n"
+"PO-Revision-Date: 2026-04-17 18:37+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: insicore-chat-bubble.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: "
+"__;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: includes/admin/analytics-page.php:13 includes/admin/save-handler.php:20
+#: includes/admin/submissions.php:10 includes/admin/submissions.php:24
+msgid "Unauthorized"
+msgstr ""
+
+#: includes/admin/analytics-page.php:56
+msgid "Contact Bubble Analytics"
+msgstr ""
+
+#: includes/admin/analytics-page.php:59
+msgid "Analytics data has been reset."
+msgstr ""
+
+#: includes/admin/analytics-page.php:65
+msgid "Total Clicks"
+msgstr ""
+
+#: includes/admin/analytics-page.php:69
+msgid "Bubble Opens"
+msgstr ""
+
+#: includes/admin/analytics-page.php:73
+msgid "Form Submissions"
+msgstr ""
+
+#: includes/admin/analytics-page.php:81
+msgid "Daily Clicks"
+msgstr ""
+
+#: includes/admin/analytics-page.php:86
+msgid "Today"
+msgstr ""
+
+#: includes/admin/analytics-page.php:87
+#, php-format
+msgid "Last %d day"
+msgid_plural "Last %d days"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/admin/analytics-page.php:105
+msgid "Clicks by Channel"
+msgstr ""
+
+#: includes/admin/analytics-page.php:112
+msgid "Top Pages by Clicks"
+msgstr ""
+
+#: includes/admin/analytics-page.php:122
+msgid "Reset ALL analytics data? This cannot be undone."
+msgstr ""
+
+#: includes/admin/analytics-page.php:125
+msgid "Reset analytics data"
+msgstr ""
+
+#: includes/admin/analytics-page.php:135
+msgid "No data for this period"
+msgstr ""
+
+#: includes/admin/analytics-page.php:136 includes/admin/analytics-page.php:353
+msgid "No data yet."
+msgstr ""
+
+#: includes/admin/analytics-page.php:137 includes/admin/analytics-page.php:374
+msgid "No page data yet."
+msgstr ""
+
+#: includes/admin/analytics-page.php:138
+msgid "Loading..."
+msgstr ""
+
+#: includes/admin/assets.php:35
+msgid "Saving..."
+msgstr ""
+
+#: includes/admin/assets.php:36
+msgid "Settings saved"
+msgstr ""
+
+#: includes/admin/assets.php:39
+msgid "Label"
+msgstr ""
+
+#: includes/admin/assets.php:40
+msgid "Custom Icon (URL or SVG)"
+msgstr ""
+
+#: includes/admin/assets.php:41
+msgid "https://... or <svg...>"
+msgstr ""
+
+#: includes/admin/assets.php:42 includes/admin/views/tab-channels.php:38
+msgid "Custom"
+msgstr ""
+
+#: includes/admin/assets.php:43
+msgid "URL / Phone / ID"
+msgstr ""
+
+#: includes/admin/assets.php:44
+msgid "Color"
+msgstr ""
+
+#: includes/admin/assets.php:45
+msgid "Hover"
+msgstr ""
+
+#: includes/admin/assets.php:46
+msgid "Pre-filled Message (optional)"
+msgstr ""
+
+#: includes/admin/assets.php:47
+msgid "Hi! I have a question about {page_title}"
+msgstr ""
+
+#: includes/admin/assets.php:48
+msgid "Tokens: {page_title}, {page_url}, {site_name}"
+msgstr ""
+
+#: includes/admin/assets.php:49
+msgid "Round-robin multiple contacts"
+msgstr ""
+
+#: includes/admin/assets.php:50 includes/admin/submissions.php:63
+#: includes/frontend/render.php:133 includes/privacy.php:52
+msgid "Name"
+msgstr ""
+
+#: includes/admin/assets.php:51
+msgid "Phone / URL / ID"
+msgstr ""
+
+#: includes/admin/assets.php:52
+msgid "+ Add another contact"
+msgstr ""
+
+#: includes/admin/assets.php:53 includes/admin/assets.php:108
+#: includes/admin/views/tab-visibility.php:76
+#: includes/admin/views/visibility-modal.php:82
+msgid "Remove"
+msgstr ""
+
+#: includes/admin/assets.php:54
+msgid "Contact Form Fields"
+msgstr ""
+
+#: includes/admin/assets.php:55
+msgid "Form Title"
+msgstr ""
+
+#: includes/admin/assets.php:56
+msgid "Submit Button Text"
+msgstr ""
+
+#: includes/admin/assets.php:57
+msgid "Name, Email are required. Phone & Message are optional add-ons."
+msgstr ""
+
+#: includes/admin/assets.php:60
+msgid "No results found"
+msgstr ""
+
+#: includes/admin/assets.php:61
+msgid "All"
+msgstr ""
+
+#: includes/admin/assets.php:63
+msgid "Homepage"
+msgstr ""
+
+#: includes/admin/assets.php:64
+msgid "404 Page"
+msgstr ""
+
+#: includes/admin/assets.php:65
+msgid "Search Results"
+msgstr ""
+
+#: includes/admin/assets.php:68 includes/admin/views/tab-visibility.php:82
+#: includes/admin/views/visibility-modal.php:88
+msgid "Pages"
+msgstr ""
+
+#: includes/admin/assets.php:69 includes/admin/views/tab-visibility.php:83
+#: includes/admin/views/visibility-modal.php:89
+msgid "Posts"
+msgstr ""
+
+#: includes/admin/assets.php:70 includes/admin/views/tab-visibility.php:84
+#: includes/admin/views/visibility-modal.php:90
+msgid "Categories"
+msgstr ""
+
+#: includes/admin/assets.php:71 includes/admin/views/tab-visibility.php:85
+#: includes/admin/views/visibility-modal.php:91
+msgid "Tags"
+msgstr ""
+
+#: includes/admin/assets.php:72 includes/admin/views/tab-visibility.php:86
+#: includes/admin/views/visibility-modal.php:92
+msgid "Custom Taxonomies"
+msgstr ""
+
+#: includes/admin/assets.php:73 includes/admin/views/tab-visibility.php:87
+#: includes/admin/views/visibility-modal.php:93
+msgid "Archives"
+msgstr ""
+
+#: includes/admin/assets.php:74 includes/admin/views/tab-visibility.php:88
+#: includes/admin/views/visibility-modal.php:94
+msgid "Other Pages"
+msgstr ""
+
+#: includes/admin/assets.php:79
+msgid "Phone number, e.g. 886912345678"
+msgstr ""
+
+#: includes/admin/assets.php:80
+msgid "LINE ID, e.g. mylineid"
+msgstr ""
+
+#: includes/admin/assets.php:81
+msgid "Facebook page name, e.g. mypagename"
+msgstr ""
+
+#: includes/admin/assets.php:82
+msgid "Telegram username, e.g. @username"
+msgstr ""
+
+#: includes/admin/assets.php:83
+msgid "Instagram handle, e.g. @username"
+msgstr ""
+
+#: includes/admin/assets.php:84
+msgid "WeChat ID"
+msgstr ""
+
+#: includes/admin/assets.php:85 includes/admin/assets.php:86
+#: includes/admin/assets.php:89
+msgid "Phone number, e.g. +886912345678"
+msgstr ""
+
+#: includes/admin/assets.php:87
+msgid "Email address, e.g. hello@example.com"
+msgstr ""
+
+#: includes/admin/assets.php:88
+msgid "Discord user ID or invite URL"
+msgstr ""
+
+#: includes/admin/assets.php:90
+msgid "Zalo phone number or username"
+msgstr ""
+
+#: includes/admin/assets.php:91
+msgid "TikTok username, e.g. @username"
+msgstr ""
+
+#: includes/admin/assets.php:92
+msgid "LinkedIn handle, e.g. johndoe"
+msgstr ""
+
+#: includes/admin/assets.php:93
+msgid "X/Twitter username, e.g. @username"
+msgstr ""
+
+#: includes/admin/assets.php:94
+msgid "Skype username"
+msgstr ""
+
+#: includes/admin/assets.php:95
+msgid "Snapchat username"
+msgstr ""
+
+#: includes/admin/assets.php:96 includes/admin/assets.php:97
+msgid "https://... (full URL)"
+msgstr ""
+
+#: includes/admin/assets.php:98
+msgid "Not used - opens in-page form"
+msgstr ""
+
+#: includes/admin/assets.php:102
+msgid "Show Phone field"
+msgstr ""
+
+#: includes/admin/assets.php:103
+msgid "Show Message field"
+msgstr ""
+
+#: includes/admin/assets.php:106
+msgid "Click an app above to add it"
+msgstr ""
+
+#: includes/admin/assets.php:107
+msgid "— no URL set —"
+msgstr ""
+
+#: includes/admin/assets.php:109
+#, php-format
+msgid "%s already added"
+msgstr ""
+
+#: includes/admin/assets.php:110 includes/admin/views/tab-settings.php:67
+msgid "Contact Form"
+msgstr ""
+
+#: includes/admin/assets.php:111 includes/frontend/render.php:117
+msgid "Send us a message"
+msgstr ""
+
+#: includes/admin/assets.php:112 includes/frontend/render.php:118
+msgid "Send Message"
+msgstr ""
+
+#: includes/admin/menu.php:13 includes/admin/menu.php:14
+msgid "Contact Bubble"
+msgstr ""
+
+#: includes/admin/menu.php:25
+msgid "Bubble Analytics"
+msgstr ""
+
+#: includes/admin/menu.php:26
+msgid "Analytics"
+msgstr ""
+
+#: includes/admin/menu.php:35 includes/admin/menu.php:76
+msgid "Bubble Builder"
+msgstr ""
+
+#: includes/admin/menu.php:36
+msgid "Builder"
+msgstr ""
+
+#: includes/admin/menu.php:45
+msgid "Bubble Submissions"
+msgstr ""
+
+#: includes/admin/menu.php:46
+msgid "Submissions"
+msgstr ""
+
+#: includes/admin/menu.php:73
+msgid "Back to Dashboard"
+msgstr ""
+
+#: includes/admin/menu.php:90 includes/admin/views/visibility-modal.php:74
+msgid "Save & Publish"
+msgstr ""
+
+#: includes/admin/menu.php:100 includes/admin/views/tab-design.php:90
+msgid "Desktop"
+msgstr ""
+
+#: includes/admin/menu.php:104 includes/admin/views/tab-design.php:94
+msgid "Mobile"
+msgstr ""
+
+#: includes/admin/menu.php:125
+msgid "Channels"
+msgstr ""
+
+#: includes/admin/menu.php:129
+msgid "Design"
+msgstr ""
+
+#: includes/admin/menu.php:133
+msgid "Visibility"
+msgstr ""
+
+#: includes/admin/menu.php:137
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/menu.php:156
+msgid "Lock Preview Open"
+msgstr ""
+
+#: includes/admin/presets.php:13
+msgid "WhatsApp"
+msgstr ""
+
+#: includes/admin/presets.php:16
+msgid "LINE"
+msgstr ""
+
+#: includes/admin/presets.php:19
+msgid "Messenger"
+msgstr ""
+
+#: includes/admin/presets.php:22
+msgid "Telegram"
+msgstr ""
+
+#: includes/admin/presets.php:25
+msgid "WeChat"
+msgstr ""
+
+#: includes/admin/presets.php:28
+msgid "Instagram"
+msgstr ""
+
+#: includes/admin/presets.php:31 includes/admin/submissions.php:65
+#: includes/frontend/render.php:142 includes/privacy.php:54
+msgid "Phone"
+msgstr ""
+
+#: includes/admin/presets.php:34
+msgid "SMS"
+msgstr ""
+
+#: includes/admin/presets.php:37 includes/admin/submissions.php:64
+#: includes/frontend/render.php:137 includes/privacy.php:53
+msgid "Email"
+msgstr ""
+
+#: includes/admin/presets.php:40
+msgid "Discord"
+msgstr ""
+
+#: includes/admin/presets.php:43
+msgid "Viber"
+msgstr ""
+
+#: includes/admin/presets.php:46
+msgid "Zalo"
+msgstr ""
+
+#: includes/admin/presets.php:49
+msgid "TikTok"
+msgstr ""
+
+#: includes/admin/presets.php:52
+msgid "LinkedIn"
+msgstr ""
+
+#: includes/admin/presets.php:55
+msgid "X (Twitter)"
+msgstr ""
+
+#: includes/admin/presets.php:58
+msgid "Skype"
+msgstr ""
+
+#: includes/admin/presets.php:61
+msgid "Snapchat"
+msgstr ""
+
+#: includes/admin/presets.php:64
+msgid "Custom URL"
+msgstr ""
+
+#: includes/admin/submissions.php:56
+msgid "Contact Bubble - Submissions"
+msgstr ""
+
+#: includes/admin/submissions.php:57
+#, php-format
+msgid "%d total submissions."
+msgstr ""
+
+#: includes/admin/submissions.php:62
+msgid "Received"
+msgstr ""
+
+#: includes/admin/submissions.php:66 includes/frontend/render.php:148
+#: includes/privacy.php:55
+msgid "Message"
+msgstr ""
+
+#: includes/admin/submissions.php:67
+msgid "Actions"
+msgstr ""
+
+#: includes/admin/submissions.php:72
+msgid "No submissions yet."
+msgstr ""
+
+#: includes/admin/submissions.php:82
+msgid "From:"
+msgstr ""
+
+#: includes/admin/submissions.php:92
+msgid "Mark read"
+msgstr ""
+
+#: includes/admin/submissions.php:92
+msgid "Unread"
+msgstr ""
+
+#: includes/admin/submissions.php:94
+msgid "Delete this submission?"
+msgstr ""
+
+#: includes/admin/submissions.php:98
+msgid "Delete"
+msgstr ""
+
+#: includes/admin/themes.php:16 includes/admin/views/tab-design.php:24
+msgid "None"
+msgstr ""
+
+#: includes/admin/themes.php:20
+msgid "Modern Shadow"
+msgstr ""
+
+#: includes/admin/themes.php:28
+msgid "Glass Morphism"
+msgstr ""
+
+#: includes/admin/themes.php:36
+msgid "Dark Elegant"
+msgstr ""
+
+#: includes/admin/themes.php:43
+msgid "Soft Pastel"
+msgstr ""
+
+#: includes/admin/themes.php:51
+msgid "Neon Glow"
+msgstr ""
+
+#: includes/admin/themes.php:58
+msgid "Squared Corners"
+msgstr ""
+
+#: includes/admin/themes.php:65
+msgid "Vibrant Gradient"
+msgstr ""
+
+#: includes/admin/themes.php:71
+msgid "Flat Clean"
+msgstr ""
+
+#: includes/admin/views/tab-channels.php:14
+msgid "Quick Add"
+msgstr ""
+
+#: includes/admin/views/tab-channels.php:28
+msgid "Add Contact Form"
+msgstr ""
+
+#: includes/admin/views/tab-channels.php:32
+msgid "Form"
+msgstr ""
+
+#: includes/admin/views/tab-channels.php:34
+msgid "Add Custom"
+msgstr ""
+
+#: includes/admin/views/tab-channels.php:44
+msgid "Active Channels"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:25
+msgid "Pulse"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:26
+msgid "Bounce"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:27
+msgid "Float"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:28
+msgid "Shake"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:29
+msgid "Zoom"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:30
+msgid "Tada"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:31
+msgid "Rotate"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:32
+msgid "Glow"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:39
+msgid "Main Bubble"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:42
+msgid "Main Color"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:49
+msgid "Hover Color"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:56
+msgid "Custom Icon"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:59
+msgid "Upload"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:61
+msgid "Leave blank to use the default chat icon."
+msgstr ""
+
+#: includes/admin/views/tab-design.php:64
+msgid "Style"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:70
+msgid "Applies a polished look on top of your colors."
+msgstr ""
+
+#: includes/admin/views/tab-design.php:73
+msgid "Idle Animation"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:86
+msgid "Layout & Position"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:102
+#: includes/admin/views/tab-design.php:131
+msgid "Position"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:104
+#: includes/admin/views/tab-design.php:134
+msgid "Right"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:105
+#: includes/admin/views/tab-design.php:135
+msgid "Left"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:109
+msgid "Size (px)"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:113
+msgid "Radius (px)"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:117
+msgid "Bottom Offset"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:121
+msgid "Side Offset"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:128
+msgid "Leave blank to inherit the desktop value. Breakpoint: ??768px."
+msgstr ""
+
+#: includes/admin/views/tab-design.php:133
+msgid "(inherit)"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:139
+msgid "Size"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:143
+msgid "Radius"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:147
+msgid "Bottom"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:151
+msgid "Side"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:160
+msgid "Greeting Message"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:161
+msgid ""
+"A chat-style bubble next to the main button that invites visitors to click."
+msgstr ""
+
+#: includes/admin/views/tab-design.php:165
+#: includes/admin/views/tab-design.php:208
+msgid "Enable"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:173
+msgid "Message Text"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:174
+msgid "Hi! Need help? Chat with us ??"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:177
+msgid "Delay (sec)"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:181
+msgid "Auto-hide (sec)"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:185
+#: includes/admin/views/tab-design.php:220
+msgid "BG Color"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:192
+#: includes/admin/views/tab-design.php:227
+msgid "Text Color"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:203
+msgid "Notification Badge"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:204
+msgid "A small red-dot indicator on the main button to grab attention."
+msgstr ""
+
+#: includes/admin/views/tab-design.php:216
+msgid "Badge Text"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:238
+msgid "Channel Menu"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:241
+msgid "Show Channel Labels"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:242
+msgid "Display names next to channel icons when expanded."
+msgstr ""
+
+#: includes/admin/views/tab-design.php:253
+msgid "Custom CSS"
+msgstr ""
+
+#: includes/admin/views/tab-design.php:254
+msgid "Advanced ??rules are appended to the plugin stylesheet."
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:16
+msgid "When to Show"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:18
+msgid ""
+"Leave all off to show immediately. If any trigger is on, the bubble stays "
+"hidden until it fires."
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:23
+msgid "Scroll Trigger"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:24
+msgid "Show after visitor scrolls past a % of the page."
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:32
+msgid "Scroll Percentage"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:38
+msgid "Time Trigger"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:39
+msgid "Show after N seconds on the page."
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:47
+msgid "Seconds"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:53
+msgid "Exit Intent"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:54
+msgid "Show when the visitor moves to leave."
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:70
+msgid "Notification Email"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:72
+msgid "Leave blank to use the site admin email."
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:75
+msgid "Success Message"
+msgstr ""
+
+#: includes/admin/views/tab-settings.php:76
+#: includes/frontend/form-handler.php:97
+msgid "Thanks! We will get back to you soon."
+msgstr ""
+
+#: includes/admin/views/tab-visibility.php:52
+msgid "Display Rules"
+msgstr ""
+
+#: includes/admin/views/tab-visibility.php:54
+msgid ""
+"Leave empty to show on every page. Add rules to limit where the bubble "
+"appears."
+msgstr ""
+
+#: includes/admin/views/tab-visibility.php:62
+#: includes/admin/views/visibility-modal.php:64
+msgid "Add Display Rule"
+msgstr ""
+
+#: includes/admin/views/tab-visibility.php:80
+#: includes/admin/views/visibility-modal.php:86
+msgid "Show on"
+msgstr ""
+
+#: includes/admin/views/tab-visibility.php:94
+#: includes/admin/views/visibility-modal.php:100
+msgid "Search or pick from list..."
+msgstr ""
+
+#: includes/admin/views/visibility-modal.php:52
+msgid "Where should the bubble appear?"
+msgstr ""
+
+#: includes/admin/views/visibility-modal.php:53
+msgid "Leave empty to show on every page. Add rules to limit where it shows."
+msgstr ""
+
+#: includes/admin/views/visibility-modal.php:55
+#: includes/frontend/render.php:107 includes/frontend/render.php:123
+msgid "Close"
+msgstr ""
+
+#: includes/admin/views/visibility-modal.php:71
+msgid "Cancel"
+msgstr ""
+
+#: includes/frontend/form-handler.php:20
+msgid "Please wait a moment before submitting again."
+msgstr ""
+
+#: includes/frontend/form-handler.php:49
+msgid "Please fill in all required fields."
+msgstr ""
+
+#: includes/frontend/form-handler.php:52
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: includes/frontend/form-handler.php:71
+msgid "Sorry, something went wrong saving your message."
+msgstr ""
+
+#. translators: %s = site name
+#: includes/frontend/form-handler.php:80
+#, php-format
+msgid "[%s] New message via Insicore Chat Bubble"
+msgstr ""
+
+#: includes/frontend/form-handler.php:83
+msgid "You received a new message via Insicore Chat Bubble:"
+msgstr ""
+
+#: includes/frontend/form-handler.php:84
+msgid "Name: "
+msgstr ""
+
+#: includes/frontend/form-handler.php:85
+msgid "Email: "
+msgstr ""
+
+#: includes/frontend/form-handler.php:86
+msgid "Phone: "
+msgstr ""
+
+#: includes/frontend/form-handler.php:87
+msgid "Page: "
+msgstr ""
+
+#: includes/frontend/form-handler.php:88
+msgid "Message:"
+msgstr ""
+
+#: includes/frontend/render.php:72
+msgid "Thanks!"
+msgstr ""
+
+#: includes/frontend/render.php:73
+msgid "Something went wrong."
+msgstr ""
+
+#: includes/frontend/render.php:74
+msgid "Network error. Please try again."
+msgstr ""
+
+#: includes/frontend/render.php:88
+msgid "Contact us"
+msgstr ""
+
+#: includes/privacy.php:25 includes/privacy.php:74
+msgid "Insicore Chat Bubble - Contact Form Submissions"
+msgstr ""
+
+#: includes/privacy.php:48
+msgid "Insicore Chat Bubble - Contact Submissions"
+msgstr ""
+
+#: includes/privacy.php:51
+msgid "Date Submitted"
+msgstr ""
+
+#: includes/privacy.php:56
+msgid "Page URL"
+msgstr ""
+
+#: includes/privacy.php:57
+msgid "IP Address"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Insicore Chat Bubble"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://github.com/hadenlin/insicore-chat-bubble"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"A customizable floating contact button for WhatsApp, LINE, Messenger, "
+"Telegram and more. Includes display rules, greeting message, badge, "
+"animations, themes, analytics and built-in contact form."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Pang Guo Design Limited"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://github.com/hadenlin"
+msgstr ""
